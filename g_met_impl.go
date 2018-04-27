@@ -5,7 +5,7 @@ type GMetInstance struct {
 	metFormatter MetFormatter
 }
 
-func createGMetInstance(metWriter MetWriter, metFormatter MetFormatter) GMet {
+func CreateGMetInstance(metWriter MetWriter, metFormatter MetFormatter) GMet {
 	ins := GMetInstance{metWriter, metFormatter}
 	return &ins
 }
