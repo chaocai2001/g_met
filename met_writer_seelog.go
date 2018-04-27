@@ -23,7 +23,6 @@ func (writer *SeeLogWriter) Close() error {
 func CreateMetWriterBySeeLog(configFile string) (MetWriter, error) {
 	var err error
 	writer := new(SeeLogWriter)
-
 	writer.Logger, err = seelog.LoggerFromConfigAsFile(configFile)
 	if err != nil {
 		return nil, err

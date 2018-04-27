@@ -38,7 +38,7 @@ func TestFormatMetricItemWithSplitterInValue(t *testing.T) {
 		t.Errorf("failed to format %v", err)
 	}
 	expected := "K1_" + FIELD_SPLITTER + "V1-A" +
-		SEC_SPLITTER + "K2-G" + FIELD_SPLITTER + "V2_"
+		SEC_SPLITTER + "K2-G" + FIELD_SPLITTER + "V2"
 	if !strings.Contains(formatted, expected) {
 		t.Errorf("The formatted is %s, but the items is expected as %s\n",
 			formatted, expected)

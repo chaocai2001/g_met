@@ -1,13 +1,5 @@
 package g_met
 
-type MetricValueType int
-
-const (
-	Integer MetricValueType = iota
-	Float
-	String
-)
-
 type MetricItem struct {
 	Key   string
 	Value string
