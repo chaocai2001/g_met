@@ -1,3 +1,6 @@
+//GMet is golang client of XMet API.
+//For more, see also: https://github.com/chaocai2001/g_met
+//Created on 2018.5
 package g_met
 
 import (
@@ -10,13 +13,25 @@ const (
 )
 
 type GMetInstance struct {
-	metWriter    MetWriter
-	metFormatter MetFormatter
+	metWriter    MetWriter    //metrics data writer
+	metFormatter MetFormatter //metrics formatter
 }
 
 func CreateGMetInstance(metWriter MetWriter, metFormatter MetFormatter) GMet {
 	ins := GMetInstance{metWriter, metFormatter}
 	return &ins
+}
+
+//Create GMet Instance with default settings.
+//(with seelog writer and ltr format
+func CreateGMetInstanceByDefault(metricsFile string) GMet {
+	//create a metric writer
+	writer, err := CreateMetWriterBySeeLog(metricsFile)
+	if err != nil {
+		panic(err)
+	}
+	//create GMet instance by given the writer and the formatter
+	gmet := CreateGMetInstance(writer, &LtrFormatter{})
 }
 
 func (gmet *GMetInstance) Send(metrics ...MetricItem) error {

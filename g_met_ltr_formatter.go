@@ -1,3 +1,5 @@
+//The format is [Metric Name][Field Splitter][Metric Value][Section Splitter][Metric Name][Field Splitter][Metric Value]
+//Created on 2018.5
 package g_met
 
 import (

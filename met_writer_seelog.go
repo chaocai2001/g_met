@@ -1,3 +1,6 @@
+//Implemented MetWriter interface with seelog
+//Created on 2018.5
+
 package g_met
 
 import (
