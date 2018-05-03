@@ -18,13 +18,8 @@ GMet is to help you create the program running metrics quickly and easily.
 ```Golang
 //The following example is to demonstrate how to use GMet.
 func main() {
-	//create a metric writer
-	writer, err := CreateMetWriterBySeeLog("../configs/g_met_seelog/g_met_log.xml")
-	if err != nil {
-		panic(err)
-	}
-	//create GMet instance by given the writer and the formatter
-	gmet := CreateGMetInstance(writer, &LtrFormatter{})
+	//create GMet instance by given default writer and the formatter
+	gmet := CreateGMetInstanceByDefault("../configs/g_met_seelog/g_met_log.xml")
 	//Create a metric item of host IP, the name of the metric item is "HostAddr"
 	addr, _ := IpAddress()
 	for i := 0; i < 100; i++ {
