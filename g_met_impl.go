@@ -32,6 +32,7 @@ func CreateGMetInstanceByDefault(metricsFile string) GMet {
 	}
 	//create GMet instance by given the writer and the formatter
 	gmet := CreateGMetInstance(writer, &LtrFormatter{})
+	return gmet
 }
 
 func (gmet *GMetInstance) Send(metrics ...MetricItem) error {
